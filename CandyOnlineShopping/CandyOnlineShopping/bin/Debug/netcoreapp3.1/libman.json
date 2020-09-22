@@ -1,5 +1,4 @@
 {
-  "version": "1.0",
   "defaultProvider": "cdnjs",
   "libraries": [
     {
@@ -10,5 +9,6 @@
       "library": "jquery@3.4.1",
       "destination": "wwwroot/lib/jquery/"
     }
-  ]
+  ],
+  "version": "1.0"
 }

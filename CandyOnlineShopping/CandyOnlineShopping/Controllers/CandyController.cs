@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CandyOnlineShopping.Models.Services.Interfaces;
+using CandyOnlineShopping.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CandyOnlineShopping.Controllers
@@ -19,8 +20,13 @@ namespace CandyOnlineShopping.Controllers
         }
         public IActionResult List()
         {
-            ViewBag.CurrentCategory = "Best Sellers!!!";
-            return View(_candyService.GetAll());
+
+            var candyListViewModel = new CandyListViewModel();
+            candyListViewModel.CurrentCategory = "Best Sellers!!";
+            candyListViewModel.Candies = _candyService.GetAll();
+            //ViewBag.CurrentCategory = "Best Sellers!!!";
+            //return View(_candyService.GetAll());
+            return View(candyListViewModel);
         }
     }
 }
