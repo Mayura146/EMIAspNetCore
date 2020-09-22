@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<CandyOnlineShopping.Models.Entity.Candy>
+
+<h1>@ViewBag.CurrentCategory</h1>
+@foreach(var candy in Model)
+{
+<div>
+    <img src="@candy.ImageThumbnailUrl" alt="Image not displayed" />
+    <h3> @candy.Price.ToString("c")</h3>
+     <h3>@candy.Name</h3>
+    <p>@candy.Description</p>
+
+</div>
+
+}
