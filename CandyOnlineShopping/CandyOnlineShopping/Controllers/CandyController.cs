@@ -28,5 +28,16 @@ namespace CandyOnlineShopping.Controllers
             //return View(_candyService.GetAll());
             return View(candyListViewModel);
         }
+
+        public IActionResult Details(int id)
+        {
+            var candy = _candyService.GetById(id);
+            if (candy == null)
+            {
+                return NotFound();
+            }
+
+            return View(candy);
+        }
     }
 }

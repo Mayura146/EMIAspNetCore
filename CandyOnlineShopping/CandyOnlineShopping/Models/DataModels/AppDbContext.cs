@@ -16,6 +16,7 @@ namespace CandyOnlineShopping.Models.DataModels
 
         public DbSet<Candy> Candy { get; set; }
         public DbSet<Category> Category { get; set; }
+        public DbSet<ShoppingCartItem> ShoppingCartItem { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -178,7 +179,7 @@ namespace CandyOnlineShopping.Models.DataModels
                 Description = "Hard Candy",
                 CategoryId = 5,
                 ImageUrl = "\\Images\\hardCandy.jpg",
-                ImageThumbnailUrl = "\\Images\\thumbnails\\hardCandy-small.jpg",
+                ImageThumbnailUrl = "\\Images\\thumbnail\\hardCandy-small.jpg",
                 IsInStock = true,
                 IsOnSale = false
             });

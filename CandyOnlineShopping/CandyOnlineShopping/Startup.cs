@@ -36,6 +36,7 @@ namespace CandyOnlineShopping
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddSession();
 
         }
 
@@ -47,6 +48,7 @@ namespace CandyOnlineShopping
                 app.UseDeveloperExceptionPage();
             }
             app.UseStaticFiles();
+            app.UseSession();
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

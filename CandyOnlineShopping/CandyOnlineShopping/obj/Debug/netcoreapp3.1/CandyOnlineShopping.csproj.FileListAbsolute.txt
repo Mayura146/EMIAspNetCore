@@ -145,3 +145,7 @@ C:\EMIAspNetCoreTraining\EMIAspNetCore\CandyOnlineShopping\CandyOnlineShopping\b
 C:\EMIAspNetCoreTraining\EMIAspNetCore\CandyOnlineShopping\CandyOnlineShopping\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\EMIAspNetCoreTraining\EMIAspNetCore\CandyOnlineShopping\CandyOnlineShopping\obj\Debug\netcoreapp3.1\CandyOnlineShopping.csproj.CoreCompileInputs.cache
 C:\EMIAspNetCoreTraining\EMIAspNetCore\CandyOnlineShopping\CandyOnlineShopping\obj\Debug\netcoreapp3.1\CandyOnlineShopping.MvcApplicationPartsAssemblyInfo.cache
+C:\EMIAspNetCoreTraining\EMIAspNetCore\CandyOnlineShopping\CandyOnlineShopping\obj\Debug\netcoreapp3.1\Razor\Views\Candy\Details.cshtml.g.cs
+C:\EMIAspNetCoreTraining\EMIAspNetCore\CandyOnlineShopping\CandyOnlineShopping\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Candy.cshtml.g.cs
+C:\EMIAspNetCoreTraining\EMIAspNetCore\CandyOnlineShopping\CandyOnlineShopping\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Slider.cshtml.g.cs
+C:\EMIAspNetCoreTraining\EMIAspNetCore\CandyOnlineShopping\CandyOnlineShopping\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
