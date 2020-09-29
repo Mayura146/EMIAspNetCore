@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CandyOnlineShopping.Models.DataModels;
+using CandyOnlineShopping.Models.Entity;
 using CandyOnlineShopping.Models.Interfaces;
 using CandyOnlineShopping.Models.Repositories;
 using CandyOnlineShopping.Models.Services;
@@ -34,9 +35,15 @@ namespace CandyOnlineShopping
             services.AddScoped<ICandyRepsoitory, CandyRepository>();
             services.AddScoped<ICandyService, CandyService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IShoppingCartItemRepository, ShoppingCartItemRepository>();
+            
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddSession();
+            services.AddHttpContextAccessor();
+               services.AddSession();
+            services.AddScoped<ShoppingCart>(sp =>ShoppingCart.GetCart(sp));
+
+
 
         }
 

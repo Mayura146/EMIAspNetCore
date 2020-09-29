@@ -11,66 +11,58 @@ using System.Threading.Tasks;
 
 namespace CandyOnlineShopping.Models.Repositories
 {
-    public class ShoppingCartRepository : ShoppingCartItem, IShoppingCartRepository
+    public class ShoppingCartItemRepository : IShoppingCartItemRepository
     {
-        public List<ShoppingCartItem> ShoppingCartItems { get; set; }
         private readonly AppDbContext _appDbContext;
 
-        public ShoppingCartRepository(AppDbContext appDbContext)
+        public ShoppingCartItemRepository(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
-        }
-        public void AddToCart(Candy candy, int amount)
-        {
-            var shoppingcartitem = _appDbContext.ShoppingCartItem.
-                  SingleOrDefault(s => s.Candy.Id == candy.Id && s.ShoppingCartId == ShoppingCartId);
 
-            if (shoppingcartitem == null)
+        }
+        public void AddToCart(Candy candy, int amount, string shoppingCartId)
+        {
+            var shoppingCartItem = _appDbContext.ShoppingCartItem.SingleOrDefault(s => s.Candy.Id == candy.Id && s.ShoppingCartId == shoppingCartId);
+            if (shoppingCartItem == null)
             {
-                shoppingcartitem = new ShoppingCartItem
+                shoppingCartItem = new ShoppingCartItem
                 {
-                    ShoppingCartId = ShoppingCartId,
+                    ShoppingCartId = shoppingCartId,
                     Candy = candy,
                     Amount = amount
                 };
-                _appDbContext.ShoppingCartItem.Add(shoppingcartitem);
+                _appDbContext.ShoppingCartItem.Add(shoppingCartItem);
             }
-
             else
             {
-                // increment of u find item in cart
-
-                shoppingcartitem.Amount++;
+                shoppingCartItem.Amount++;
             }
             _appDbContext.SaveChanges();
         }
 
-        public void ClearCart()
+        public void ClearCart(string shoppingCartId)
         {
-            var cartitems = _appDbContext.ShoppingCartItem.
-                  Where(c => c.ShoppingCartId == ShoppingCartId);
-            _appDbContext.ShoppingCartItem.RemoveRange(cartitems);
+            var shoppingCartItems = _appDbContext.ShoppingCartItem.Where(c => c.ShoppingCartId == shoppingCartId);
+
+            _appDbContext.ShoppingCartItem.RemoveRange(shoppingCartItems);
             _appDbContext.SaveChanges();
         }
 
-        public List<ShoppingCartItem> GetShoppingCartItems()
+        public List<ShoppingCartItem> GetShoppingCartItems(string shoppingCartId)
         {
-            return ShoppingCartItems ?? (ShoppingCartItems = _appDbContext.ShoppingCartItem.
-               Where(c => c.ShoppingCartId == ShoppingCartId).Include(s => s.Candy).ToList());
+            return _appDbContext.ShoppingCartItem.Where(c => c.ShoppingCartId == shoppingCartId).Include(s => s.Candy).ToList();
         }
 
-        public decimal GetShoppingCartTotal()
+        public decimal GetShoppingCartTotal(string shoppingCartId)
         {
-            var total = _appDbContext.ShoppingCartItem.
-                 Where(c => c.ShoppingCartId == ShoppingCartId).
-                 Select(c => c.Candy.Price * c.Amount).Sum();
+            var total = _appDbContext.ShoppingCartItem.Where(c => c.ShoppingCartId == shoppingCartId).Select(c => c.Candy.Price * c.Amount).Sum();
             return total;
         }
 
-        public int RemoveFromCart(Candy candy)
+        public int RemoveFromCart(Candy candy, string shoppingCartId)
         {
-            var shoppingCartItem = _appDbContext.ShoppingCartItem.
-           SingleOrDefault(s => s.Candy.Id == candy.Id && s.ShoppingCartId == ShoppingCartId);
+            var shoppingCartItem = _appDbContext.ShoppingCartItem.SingleOrDefault(s => s.Candy.Id == candy.Id && s.ShoppingCartId == shoppingCartId);
+
             var localAmount = 0;
             if (shoppingCartItem != null)
             {
@@ -79,17 +71,14 @@ namespace CandyOnlineShopping.Models.Repositories
                     shoppingCartItem.Amount--;
                     localAmount = shoppingCartItem.Amount;
                 }
-
-                else
-                {
-                    _appDbContext.ShoppingCartItem.Remove(shoppingCartItem);
-                }
             }
-
+            else
+            {
+                _appDbContext.ShoppingCartItem.Remove(shoppingCartItem);
+            }
             _appDbContext.SaveChanges();
+
             return localAmount;
         }
-
-
     }
 }

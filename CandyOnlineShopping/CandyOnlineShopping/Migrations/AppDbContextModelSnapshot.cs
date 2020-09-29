@@ -303,14 +303,13 @@ namespace CandyOnlineShopping.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<double>("Amount")
-                        .HasColumnType("float");
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
 
                     b.Property<int?>("CandyId")
                         .HasColumnType("int");
 
                     b.Property<string>("ShoppingCartId")
-                        .HasColumnName("ShoppingCartId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

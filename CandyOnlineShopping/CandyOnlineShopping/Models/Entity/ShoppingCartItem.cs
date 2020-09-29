@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CandyOnlineShopping.Models.Entity
 {
-    public class ShoppingCartItem
-    {
-        [Column ("ShoppingCartItemId")]
-        public int Id { get; set; }
-        [Column ("ShoppingCartId")]
-        public string ShoppingCartId { get; set; }
-
-        public Candy Candy { get; set; }
-        public int Amount { get; set; }
+   
+        public class ShoppingCartItem
+        {
+            [Column("ShoppingCartItemId")]
+            public int Id { get; set; }
+            public string ShoppingCartId { get; set; }
+            public Candy Candy { get; set; }
+            public int Amount { get; set; }
+        }
     }
-}
+
