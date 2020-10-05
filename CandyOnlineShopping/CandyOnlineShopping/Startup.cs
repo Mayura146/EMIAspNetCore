@@ -8,9 +8,12 @@ using CandyOnlineShopping.Models.Interfaces;
 using CandyOnlineShopping.Models.Repositories;
 using CandyOnlineShopping.Models.Services;
 using CandyOnlineShopping.Models.Services.Interfaces;
+using CandyOnlineShopping.Utility;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -36,12 +39,17 @@ namespace CandyOnlineShopping
             services.AddScoped<ICandyService, CandyService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IShoppingCartItemRepository, ShoppingCartItemRepository>();
-            
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddSingleton<IEmailSender, EmailSender>();
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
             services.AddHttpContextAccessor();
                services.AddSession();
             services.AddScoped<ShoppingCart>(sp =>ShoppingCart.GetCart(sp));
+            services.AddRazorPages();
 
 
 
@@ -57,6 +65,8 @@ namespace CandyOnlineShopping
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -67,7 +77,7 @@ namespace CandyOnlineShopping
 
                 );
 
-
+                endpoints.MapRazorPages();
 
             });
             }

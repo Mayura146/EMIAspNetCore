@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using CandyOnlineShopping.Utility 
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
@@ -20,15 +21,29 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
+               
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
 
-                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-                <li><a asp-controller="Candy" asp-action="List">All Candies</a></li>
- </ul>
-                    </div>
+                        <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                        @await Component.InvokeAsync("CategoryMenu")
+                        @*<li><a asp-controller="Candy" asp-action="List">All Candies</a></li>*@
+                        @await Component.InvokeAsync("ShoppingCartSummary")
+                        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
+                        @if (User.IsInRole(Roles.Role_Admin))
+                        {
+                            <li><a asp-controller="AddCandy" asp-action="Index">Add Candy</a></li>
+                            @*<partial name="_LoginPartial" />*@
+                        }
+
+
+                    </ul>
+                    <partial name="_LoginPartial" />
                 </div>
+                </div>
+                
             </nav>
+                
                         <div class="row">
                             <div class="col-md-3">
                                 <p class="lead">
@@ -38,6 +53,7 @@
                             <div class="col-md-9">
                                 @RenderBody()
                             </div>
+                            @RenderSection("Scripts",required:false)
                         </div>
                 </div>
 </body>

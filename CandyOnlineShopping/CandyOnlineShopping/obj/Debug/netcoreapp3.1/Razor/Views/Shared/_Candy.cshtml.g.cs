@@ -34,7 +34,7 @@ using CandyOnlineShopping.Models.ViewModels;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"7503e18e3223d1e2492c137467d1e793b34dcc39", @"/Views/Shared/_Candy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c6d103ddb120916a2521336331a744f469c49975", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4a229a39baa0e49e00f7ea0ca0b8051b3bf9e780", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Candy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Candy>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Candy", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

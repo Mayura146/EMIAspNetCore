@@ -21,6 +21,8 @@ namespace CandyOnlineShopping.Controllers
             _shoppingCart = shoppingCart;
 
             }
+
+        
         public IActionResult Index()
         {
             
