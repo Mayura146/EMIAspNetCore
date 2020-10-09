@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DatingApp.DataModel\DatingApp.DataModel.csproj" />
+    <ProjectReference Include="..\DatingApp.ServiceModel\DatingApp.ServiceModel.csproj" />
   </ItemGroup>
 
 

@@ -10,7 +10,7 @@ namespace DatingApp.Api.Extensions
 {
     public static class SwaggerExtension
     {
-        public static void ConfigureSwagger(this ServiceCollection services)
+        public static void ConfigureSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(options =>
             {
@@ -20,6 +20,13 @@ namespace DatingApp.Api.Extensions
                 
         }
 
-        public static IApplicationBuilder UseClientApi()
+        public static void UseClientApi(this IApplicationBuilder app)
+        {
+            app.UseSwagger();
+             app.UseSwaggerUI(s =>
+            {
+                s.SwaggerEndpoint("/swagger/v1/swagger.json", "DatingApp");
+            });
+        }
     }
 }

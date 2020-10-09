@@ -32,7 +32,9 @@ namespace DatingApp
             services.AddDbContext<DatingAppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.ConfigureDomainServices();
-            
+            services.ConfigureSwagger();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +55,7 @@ namespace DatingApp
             {
                 endpoints.MapControllers();
             });
+            app.UseClientApi();
         }
     }
 }

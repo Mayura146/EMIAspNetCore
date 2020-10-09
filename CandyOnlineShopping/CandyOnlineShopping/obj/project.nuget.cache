@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uWJRNcXG2BpxvFX93DCCnyrrK23i/ykevrnStvnZT4kDND0h502lBDqHzy9R9PnMoISTHfP9Li9UrFq0M0kkAA==",
+  "dgSpecHash": "UfIwpoUt11fEZ8PRg2UJ3yRaVBq0jdLfE94vIM4FZf7rvdaGz7lryG1Iq2zdSt5g75KMA833YshR4onQaIwGKA==",
   "success": true,
   "projectFilePath": "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\CandyOnlineShopping\\CandyOnlineShopping\\CandyOnlineShopping.csproj",
   "expectedPackageFiles": [
@@ -85,6 +85,8 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\mayura.sonar\\.nuget\\packages\\sendgrid\\9.21.0\\sendgrid.9.21.0.nupkg.sha512",
+    "C:\\Users\\mayura.sonar\\.nuget\\packages\\starkbank-ecdsa\\1.2.0\\starkbank-ecdsa.1.2.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.buffers\\4.3.0\\system.buffers.4.3.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

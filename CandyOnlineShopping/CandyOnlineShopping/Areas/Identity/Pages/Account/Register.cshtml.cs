@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -31,7 +31,7 @@ namespace CandyOnlineShopping.Areas.Identity.Pages.Account
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender,RoleManager<IdentityRole> roleManager)
+            IEmailSender emailSender, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -64,25 +64,25 @@ namespace CandyOnlineShopping.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-           
+            [NotMapped]
             public string Role { get; set; }
-
             public IEnumerable<SelectListItem> RoleList { get; set; }
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
-
             Input = new InputModel()
             {
-                RoleList = _roleManager.Roles.Where(u => u.Name != Roles.Role_User_Indiviual)
-                .Select(x => x.Name).Select(i => new SelectListItem
-                {
-                    Text = i,
-                    Value = i
-
-                })
+                RoleList = _roleManager.Roles
+                    .Where(u => u.Name != Roles.Role_User_Indiviual)
+                    .Select(x => x.Name)
+                    .Select(i => new SelectListItem
+                    {
+                        Text = i,
+                        Value = i
+                    })
             };
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
@@ -97,42 +97,37 @@ namespace CandyOnlineShopping.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-
                     _logger.LogInformation("User created a new account with password.");
-
-                    if(!await _roleManager.RoleExistsAsync(Roles.Role_Admin))
+                    if (!await _roleManager.RoleExistsAsync(Roles.Role_Admin))
                     {
                         await _roleManager.CreateAsync(new IdentityRole(Roles.Role_Admin));
-                   await _userManager.AddToRoleAsync(user, Roles.Role_Admin);
+                        await _userManager.AddToRoleAsync(user, Roles.Role_Admin);
                     }
-                    
-                   else if(User.IsInRole(Roles.Role_Admin))
+                    else if (User.IsInRole(Roles.Role_Admin))
                     {
                         await _userManager.AddToRoleAsync(user, Roles.Role_Admin);
                     }
-                
-                  else  if(!await _roleManager.RoleExistsAsync(Roles.Role_User_Indiviual))
+                    else if (!await _roleManager.RoleExistsAsync(Roles.Role_User_Indiviual))
                     {
                         await _roleManager.CreateAsync(new IdentityRole(Roles.Role_User_Indiviual));
                         await _userManager.AddToRoleAsync(user, Roles.Role_User_Indiviual);
-
                     }
-                        
                     else
                     {
                         await _userManager.AddToRoleAsync(user, Roles.Role_User_Indiviual);
                     }
-                    
-                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    //var callbackUrl = Url.Page(
-                    //    "/Account/ConfirmEmail",
-                    //    pageHandler: null,
-                    //    values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
-                    //    protocol: Request.Scheme);
 
-                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    var callbackUrl = Url.Page(
+                        "/Account/ConfirmEmail",
+                        pageHandler: null,
+                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
+                        protocol: Request.Scheme);
+
+                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -155,4 +150,3 @@ namespace CandyOnlineShopping.Areas.Identity.Pages.Account
         }
     }
 }
-

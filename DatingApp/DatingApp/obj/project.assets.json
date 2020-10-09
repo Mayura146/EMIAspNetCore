@@ -2008,6 +2008,20 @@
         "runtime": {
           "bin/placeholder/DatingApp.DataModel.dll": {}
         }
+      },
+      "DatingApp.ServiceModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8"
+        },
+        "compile": {
+          "bin/placeholder/DatingApp.ServiceModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DatingApp.ServiceModel.dll": {}
+        }
       }
     }
   },
@@ -6791,11 +6805,17 @@
       "type": "project",
       "path": "../DatingApp.DataModel/DatingApp.DataModel.csproj",
       "msbuildProject": "../DatingApp.DataModel/DatingApp.DataModel.csproj"
+    },
+    "DatingApp.ServiceModel/1.0.0": {
+      "type": "project",
+      "path": "../DatingApp.ServiceModel/DatingApp.ServiceModel.csproj",
+      "msbuildProject": "../DatingApp.ServiceModel/DatingApp.ServiceModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "DatingApp.DataModel >= 1.0.0",
+      "DatingApp.ServiceModel >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.8",
       "Microsoft.EntityFrameworkCore >= 3.1.8",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.8",
@@ -6837,6 +6857,9 @@
           "projectReferences": {
             "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\DatingApp\\DatingApp.DataModel\\DatingApp.DataModel.csproj": {
               "projectPath": "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\DatingApp\\DatingApp.DataModel\\DatingApp.DataModel.csproj"
+            },
+            "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\DatingApp\\DatingApp.ServiceModel\\DatingApp.ServiceModel.csproj": {
+              "projectPath": "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\DatingApp\\DatingApp.ServiceModel\\DatingApp.ServiceModel.csproj"
             }
           }
         }

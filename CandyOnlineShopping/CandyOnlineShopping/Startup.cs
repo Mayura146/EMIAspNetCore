@@ -41,11 +41,15 @@ namespace CandyOnlineShopping
             services.AddScoped<IShoppingCartItemRepository, ShoppingCartItemRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IOrderService, OrderService>();
+           
             services.AddSingleton<IEmailSender, EmailSender>();
+            services.Configure<EmailOptions>(Configuration);
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = true;
+            }).AddDefaultUI().AddEntityFrameworkStores<AppDbContext>().AddSignInManager().AddDefaultTokenProviders();
             services.AddHttpContextAccessor();
                services.AddSession();
             services.AddScoped<ShoppingCart>(sp =>ShoppingCart.GetCart(sp));

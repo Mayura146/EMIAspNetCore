@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DatingApp.DataModel.Context;
 using DatingApp.DataModel.Entities;
+using DatingApp.ServiceModel.DTOs.Response;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -25,7 +26,7 @@ namespace DatingApp.Api.Controllers
 
         [HttpPost("register")]
 
-        public async Task<ActionResult<User>> Register(string name,string password)
+        public async Task<ActionResult<RegisterDto>> Register(string name,string password)
         {
             if (await UserExists(name)) return BadRequest("UserName already Exists");
 
@@ -40,7 +41,13 @@ namespace DatingApp.Api.Controllers
             _datingAppDbContext.User.Add(user);
 
             await _datingAppDbContext.SaveChangesAsync();
-            return user;
+            var registerDto = new RegisterDto
+            {
+                UserName = name
+                
+            };
+            return registerDto;
+
         }
 
         private async Task<bool> UserExists(string userName)
