@@ -49,7 +49,28 @@ namespace DatingApp.Api.Controllers
             return registerDto;
 
         }
+        [HttpPost("login")]
+        public async Task<ActionResult<LoginDto>> Login(string userName,string password)
+        {
+         
+            if (!await UserExists(userName)) return Unauthorized("Invalid UserName");
+            var user = await _datingAppDbContext.User.SingleOrDefaultAsync(u => u.Name == userName);
+            var hmac = new HMACSHA512(user.PasswordSalt);
+            var value = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+          
+            if(!Enumerable.SequenceEqual(value,user.PasswordHash))
+            {
+                return Unauthorized("Invalid Password!!");
+            }
 
+            var loginDto = new LoginDto
+            {
+                UserName = userName
+            };
+
+            return loginDto;
+          
+        }
         private async Task<bool> UserExists(string userName)
         {
             return await _datingAppDbContext.User.AnyAsync(u => u.Name.ToLower() == userName.ToLower());

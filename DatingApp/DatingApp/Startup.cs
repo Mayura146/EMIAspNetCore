@@ -33,6 +33,7 @@ namespace DatingApp
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.ConfigureDomainServices();
             services.ConfigureSwagger();
+            services.ConfigureCors();
 
 
         }
@@ -48,6 +49,7 @@ namespace DatingApp
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCorswithPolicy();
 
             app.UseAuthorization();
 
@@ -56,6 +58,12 @@ namespace DatingApp
                 endpoints.MapControllers();
             });
             app.UseClientApi();
+
+            // header:HMAC512
+            // Payload:
+            // Registered
+            // Private
+            // Public
         }
     }
 }
