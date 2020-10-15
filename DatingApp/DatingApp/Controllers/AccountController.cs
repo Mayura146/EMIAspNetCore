@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using DatingApp.Api.Services;
 using DatingApp.DataModel.Context;
 using DatingApp.DataModel.Entities;
 using DatingApp.ServiceModel.DTOs.Response;
@@ -18,19 +19,21 @@ namespace DatingApp.Api.Controllers
     public class AccountController : ControllerBase
     {
         private readonly DatingAppDbContext _datingAppDbContext;
+       
 
         public AccountController(DatingAppDbContext datingAppDbContext)
         {
             _datingAppDbContext = datingAppDbContext;
+           
         }
 
         [HttpPost("register")]
-
-        public async Task<ActionResult<RegisterDto>> Register(string name,string password)
+        public async Task<ActionResult<RegisterDto>> Register(string name, string password)
+        // public async Task<ActionResult<RegisterDto>> Register(string name,string password)
         {
             if (await UserExists(name)) return BadRequest("UserName already Exists");
 
-            var hmac= new HMACSHA512();
+            var hmac = new HMACSHA512();
             var user = new User
             {
                 Name = name,
@@ -44,13 +47,16 @@ namespace DatingApp.Api.Controllers
             var registerDto = new RegisterDto
             {
                 UserName = name
-                
+
             };
             return registerDto;
 
+
+
         }
         [HttpPost("login")]
-        public async Task<ActionResult<LoginDto>> Login(string userName,string password)
+        public async Task<ActionResult<LoginDto>> Login(string userName, string password)
+        //public async Task<ActionResult<LoginDto>> Login(string userName,string password)
         {
          
             if (!await UserExists(userName)) return Unauthorized("Invalid UserName");
@@ -69,7 +75,8 @@ namespace DatingApp.Api.Controllers
             };
 
             return loginDto;
-          
+
+
         }
         private async Task<bool> UserExists(string userName)
         {

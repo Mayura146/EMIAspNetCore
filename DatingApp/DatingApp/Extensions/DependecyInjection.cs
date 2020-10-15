@@ -1,4 +1,6 @@
-﻿using DatingApp.Api.Services;
+﻿using AutoMapper;
+using DatingApp.Api.Mapper;
+using DatingApp.Api.Services;
 using DatingApp.Api.Services.Interfaces;
 using DatingApp.DataModel.Repositories;
 using DatingApp.DataModel.Repositories.Interfaces;
@@ -17,6 +19,7 @@ namespace DatingApp.Api.Extensions
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddAutoMapper(typeof(AutoMapperProfile));
         }
     }
 }
