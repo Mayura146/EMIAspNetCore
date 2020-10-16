@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DatingApp.ServiceModel.DTOs.Response
+namespace DatingApp.ServiceModel.DTOs.Request
 {
-   public  class LoginDto
+   public class LoginRequestDto
     {
         public string Name { get; set; }
-        public string Token { get; set; }
+        public string Password { get; set; }
     }
 }

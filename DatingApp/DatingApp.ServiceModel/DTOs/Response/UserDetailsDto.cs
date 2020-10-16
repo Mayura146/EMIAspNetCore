@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DatingApp.ServiceModel.DTOs.Response
 {
-   public class RegisterDto
+   public class UserDetailsDto
     {
-        
-        public string UserName { get; set; }
+        public string Name { get; set; }
+        public string Gender { get; set; }
     }
 }

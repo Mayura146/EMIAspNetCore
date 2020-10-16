@@ -6,6 +6,7 @@ using AutoMapper;
 using DatingApp.Api.Services.Interfaces;
 using DatingApp.DataModel.Entities;
 using DatingApp.ServiceModel.DTOs.Response;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,7 +37,7 @@ namespace DatingApp.Api.Controllers
 
 
         [HttpGet("{Id}")]
-
+        [Authorize]
         public async Task<ActionResult<UserDto>> GetUserByIdAsync(int Id)
         {
             var user= await _userService.GetByIdAsync(Id);

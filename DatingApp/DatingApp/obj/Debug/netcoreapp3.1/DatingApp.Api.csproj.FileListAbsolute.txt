@@ -68,7 +68,6 @@ C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\bin\Debug\netcoreapp3
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.csprojAssemblyReference.cache
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.AssemblyInfoInputs.cache
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.AssemblyInfo.cs
-C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.RazorTargetAssemblyInfo.cache
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.csproj.CopyComplete
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\staticwebassets\DatingApp.Api.StaticWebAssets.Manifest.cache
@@ -78,5 +77,7 @@ C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.genruntimeconfig.cache
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.csproj.CoreCompileInputs.cache
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.MvcApplicationPartsAssemblyInfo.cache

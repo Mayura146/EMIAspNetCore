@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1dAfGEmRhJE7Qz4pzQVo1UaCrDrisCLyU4Y3I/BjFhDpRup0PddV+GHYiIuxMxZKtZOldfzIxZDxGLUiMeisLg==",
+  "dgSpecHash": "WBxLuDSu/gOnb+JkaSgMtqAPmtfkOVmL5AVn1rNW/vIBF+wPT9+Rl7fl3VObdAPacTjIISAkkf71aXuT+xPu+Q==",
   "success": true,
   "projectFilePath": "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\DatingApp\\DatingApp\\DatingApp.Api.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.0.0\\microsoft.aspnetcore.authentication.abstractions.2.0.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.0.0\\microsoft.aspnetcore.authentication.core.2.0.0.nupkg.sha512",
+    "C:\\Users\\mayura.sonar\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.9\\microsoft.aspnetcore.authentication.jwtbearer.3.1.9.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.0.0\\microsoft.aspnetcore.authorization.2.0.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.0.0\\microsoft.aspnetcore.authorization.policy.2.0.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.8\\microsoft.aspnetcore.cryptography.internal.3.1.8.nupkg.sha512",

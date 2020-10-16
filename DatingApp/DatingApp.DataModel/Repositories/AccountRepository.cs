@@ -34,7 +34,7 @@ namespace DatingApp.DataModel.Repositories
                 public async Task<User> Login(string name, string password)
         {
             var user = await _datingAppDbContext.User.Include(p => p.Photos)
-                .FirstOrDefaultAsync(x => x.Name == name);
+                .FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
             if (user == null)
                 return null;
 
