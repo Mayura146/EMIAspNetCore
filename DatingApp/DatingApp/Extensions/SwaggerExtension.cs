@@ -1,10 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DatingApp.Api.Extensions
 {
@@ -14,25 +10,46 @@ namespace DatingApp.Api.Extensions
         {
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "DatingApp" });
-                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "DatingApp", Version = "v1" });
+                var securitySchema = new OpenApiSecurityScheme
                 {
-                    Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
-                    In = ParameterLocation.Header,
+                    Description = "JWT Auth Bearer Scheme",
                     Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer",
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                };
+                options.AddSecurityDefinition("Bearer", securitySchema);
+                var securityRequirement = new OpenApiSecurityRequirement { { securitySchema, new[] { "Bearer" } } };
+                options.AddSecurityRequirement(securityRequirement);
             });
-
-
         }
 
-        public static void UseClientApi(this IApplicationBuilder app)
+
+        //options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        //{
+        //    Description = "JWT Authorization header using the Bearer scheme. Bearer {token}\"",
+        //    Name = "Authorization",
+        //    In = ParameterLocation.Header,
+        //    Type = SecuritySchemeType.ApiKey,
+        //    Scheme = "DatingAuth"
+        //});
+
+
+        public static IApplicationBuilder USeClientApi(this IApplicationBuilder app)
         {
             app.UseSwagger();
-             app.UseSwaggerUI(s =>
+            return app.UseSwaggerUI(c =>
             {
-                s.SwaggerEndpoint("/swagger/v1/swagger.json", "DatingApp");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "DatingApp");
+
+
+
             });
         }
     }

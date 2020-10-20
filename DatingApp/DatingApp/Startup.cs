@@ -57,7 +57,7 @@ namespace DatingApp
             {
                 endpoints.MapControllers();
             });
-            app.UseClientApi();
+            app.USeClientApi();
 
             // header:HMAC512
             // Payload:

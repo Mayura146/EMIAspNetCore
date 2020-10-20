@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DatingApp.Api.Extensions;
 using DatingApp.DataModel.Entities;
 using DatingApp.ServiceModel.DTOs.Request;
 using DatingApp.ServiceModel.DTOs.Response;
@@ -14,7 +15,9 @@ namespace DatingApp.Api.Mapper
     {
         public AutoMapperProfile()
         {
-            CreateMap<User, UserDto>();
+            CreateMap<User, UserDto>().ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src =>
+                  src.Photos.FirstOrDefault(x => x.IsMain).Url))
+                .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateofBirth.Age()));
             CreateMap<Photo, PhotoDto>();
             CreateMap<User, RegisterDto>();
             CreateMap<User, LoginDto>();
