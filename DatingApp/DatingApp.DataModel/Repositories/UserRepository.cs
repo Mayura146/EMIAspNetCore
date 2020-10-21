@@ -22,12 +22,12 @@ namespace DatingApp.DataModel.Repositories
 
         public async Task<IEnumerable<User>> GetAllAsync()
         {
-            return await _datingAppDbcontext.User.ToListAsync();
+            return await _datingAppDbcontext.User.Include(x=>x.Photos).ToListAsync();
         }
 
         public async Task<User> GetByIdAsync(int id)
         {
-            return await _datingAppDbcontext.User.Where(u=> u.Id == id).FirstOrDefaultAsync();
+            return await _datingAppDbcontext.User.Where(u=> u.Id == id).Include(x=>x.Photos).FirstOrDefaultAsync();
         }
     }
 }

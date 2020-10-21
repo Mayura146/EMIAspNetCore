@@ -11,6 +11,8 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { UserListComponent } from './Components/user-list/user-list.component';
 import { ListComponent } from './Components/list/list.component';
 import { MessagesComponent } from './Components/messages/messages.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { HomeComponent } from './Components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { MessagesComponent } from './Components/messages/messages.component';
     UserListComponent,
     ListComponent,
     MessagesComponent,
+    RegisterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

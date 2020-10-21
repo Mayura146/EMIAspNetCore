@@ -1,14 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthenticationGuard } from './AuthGuards/authentication.guard';
+import { HomeComponent } from './Components/home/home.component';
 import { ListComponent } from './Components/list/list.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { UserListComponent } from './Components/user-list/user-list.component';
 
 const routes: Routes = [
-  { path: 'user', component: UserListComponent },
-  { path: 'messages', component: MessagesComponent },
-  { path: 'lists', component: ListComponent },
-  {path:'**', component: MessagesComponent, pathMatch: 'full'},
+  { path: '', component: HomeComponent },
+  {
+    path: '',
+    runGuardsAndResolvers: 'always',
+    canActivate: [AuthenticationGuard],
+    children: [
+      { path: 'user', component: UserListComponent },
+      { path: 'messages', component: MessagesComponent },
+      { path: 'lists', component: ListComponent },
+    ],
+  },
+
+  {path: '**', component: MessagesComponent, pathMatch: 'full'},
 ];
 
 @NgModule({
