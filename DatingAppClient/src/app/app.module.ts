@@ -16,6 +16,7 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { UserCardComponent } from './Components/user-card/user-card.component';
 import { UserDetailsComponent } from './Components/user-details/user-details.component';
+import { UserEditComponent } from './Components/user-edit/user-edit.component';
 import { UserListComponent } from './Components/user-list/user-list.component';
 import { JwtInterceptor } from './Interceptor/jwt.interceptor';
 @NgModule({
@@ -29,6 +30,7 @@ import { JwtInterceptor } from './Interceptor/jwt.interceptor';
     HomeComponent,
     UserCardComponent,
     UserDetailsComponent,
+    UserEditComponent,
 
   ],
   imports: [

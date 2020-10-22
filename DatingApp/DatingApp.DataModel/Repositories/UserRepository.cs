@@ -29,5 +29,15 @@ namespace DatingApp.DataModel.Repositories
         {
             return await _datingAppDbcontext.User.Where(u=> u.Id == id).Include(x=>x.Photos).FirstOrDefaultAsync();
         }
+
+        public async Task<bool> SaveAllChangesAsync()
+        {
+            return await _datingAppDbcontext.SaveChangesAsync() > 0;
+        }
+
+        public void Update(User user)
+        {
+            _datingAppDbcontext.Entry(user).State = EntityState.Modified;
+        }
     }
 }

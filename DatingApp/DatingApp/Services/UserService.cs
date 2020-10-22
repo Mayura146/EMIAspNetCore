@@ -26,5 +26,15 @@ public async Task<IEnumerable<User>> GetAllAsync()
         {
             return await _userRepository.GetByIdAsync(id);
         }
+
+        public async Task<bool> SaveAllChangesAsync()
+        {
+            return await _userRepository.SaveAllChangesAsync();
+        }
+
+        public void Update(User user)
+        {
+            _userRepository.Update(user);
+        }
     }
 }

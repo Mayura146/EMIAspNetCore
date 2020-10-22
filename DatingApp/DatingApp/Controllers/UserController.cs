@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using DatingApp.Api.Services.Interfaces;
 using DatingApp.DataModel.Entities;
+using DatingApp.ServiceModel.DTOs.Request;
 using DatingApp.ServiceModel.DTOs.Response;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -46,5 +48,18 @@ namespace DatingApp.Api.Controllers
             return response;
         }
 
+        [HttpPut("update")]
+        public async Task<ActionResult>UpdateUser(UserUpdateDto userUpdateDto)
+        {
+            var id = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var user = await _userService.GetByIdAsync(id);
+            var result = _mapper.Map(userUpdateDto, user);
+            _userService.Update(result);
+
+            if (await _userService.SaveAllChangesAsync())
+                return NoContent();
+
+            return BadRequest("Updation Failed!!");
+        }
     }
 }
