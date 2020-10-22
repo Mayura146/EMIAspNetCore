@@ -1,5 +1,5 @@
-<div>
+<div class="row">
     <div *ngFor="let user of members">
-        {{user.name}}
+       <app-user-card [member]="user"></app-user-card>
     </div>
 </div>

@@ -14,6 +14,7 @@ export class AccountService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // tslint:disable-next-line: typedef
   public login(model: any) {
     const URL = this.baseUrl + 'account/login';
     return this.httpClient.post(URL, model)
@@ -26,11 +27,13 @@ export class AccountService {
         return user;
       }));
   }
+  // tslint:disable-next-line: typedef
   public logout() {
     localStorage.removeItem('user');
     this.currentUserValue.next(null);
   }
 
+  // tslint:disable-next-line: typedef
   public register(model: any) {
     const URL = this.baseUrl + 'account/register';
     return this.httpClient.post(URL, model).pipe(map((user: IUser) => {
