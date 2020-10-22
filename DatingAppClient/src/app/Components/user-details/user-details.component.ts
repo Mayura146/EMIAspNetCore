@@ -12,7 +12,7 @@ import { MemberService } from 'src/app/Services/member.service';
 })
 export class UserDetailsComponent implements OnInit {
 
-  public member: IMember;
+  public member: Member;
   public galleryOptions: NgxGalleryOptions[];
   public galleryImages: NgxGalleryImage[];
   constructor(private memberService: MemberService, private route: ActivatedRoute) { }
@@ -21,33 +21,37 @@ export class UserDetailsComponent implements OnInit {
     this.getMember();
     this.galleryOptions = [
       {
-        width: '400px',
-        height: '400px',
-        thumbnailsColumns: 3,
+        height: '500px',
         imageAnimation: NgxGalleryAnimation.Slide,
         preview: false,
+        thumbnailsColumns: 4,
+        width: '500px',
+
       },
     ];
 
+ 
   }
 
-  public getMember() {
-    this.memberService.getMemberById(+this.route.snapshot.paramMap.get('id'))
-      .subscribe((response) => {
-        this.member = response;
-      });
-    this.galleryImages = this.getImages();
-  }
-
+  // get Images out of member object
   public getImages(): NgxGalleryImage[] {
     const imageUrl = [];
     for (const photo of this.member.photos) {
       imageUrl.push({
-        small: photo.url,
-        medium: photo.url,
         big: photo.url,
-      });
+        medium: photo.url,
+        small: photo.url,
+          });
       return imageUrl;
       }
+  }
+  // tslint:disable-next-line: typedef
+  public getMember() {
+    this.memberService.getMemberById(+this.route.snapshot.paramMap.get('id')).subscribe((response) => {
+      console.log(response);
+      this.member = response;
+      this.galleryImages = this.getImages();
+
+    });
   }
 }
