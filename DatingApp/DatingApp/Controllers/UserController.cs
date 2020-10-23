@@ -49,7 +49,7 @@ namespace DatingApp.Api.Controllers
             return response;
         }
 
-        [HttpPut("update")]
+        [HttpPut("edit")]
         public async Task<ActionResult>UpdateUser(UserUpdateDto userUpdateDto)
         {
             var userId = await _userService.GetByIdAsync(User.GetUserId());

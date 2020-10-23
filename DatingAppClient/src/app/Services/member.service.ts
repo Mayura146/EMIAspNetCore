@@ -15,10 +15,12 @@ export class MemberService {
   }
 
   public getMembers() {
-   
+
+
     return this.httpClient.get<IMember[]>(this.baseUrl + 'user');
   }
   public getMemberById(id: number) {
     return this.httpClient.get<IMember>(this.baseUrl + 'user/' + id);
   }
+
 }

@@ -15,7 +15,7 @@ export class UserEditComponent implements OnInit {
   @ViewChild('editForm') public editForm: NgForm;
   public member: IMember;
   public user: IUser;
-  @HostListener('window:beforeunload', ['$event'])  unloadNotification($event: any) {
+  @HostListener('window:beforeunload', ['$event'])  public unloadNotification($event: any) {
     if (this.editForm.dirty) {
       $event.returnValue = true;
     }
@@ -37,9 +37,12 @@ export class UserEditComponent implements OnInit {
     });
   }
   public editUser() {
-    console.log(this.member);
-    this.toastrService.success('your data has been successfully updated!!');
-    this.editForm.reset(this.member);
+
+      this.toastrService.success('your data has been successfully updated!!');
+      this.editForm.reset(this.member);
+
+      console.log(this.member);
+
   }
 }
 
