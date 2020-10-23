@@ -3,11 +3,7 @@ using DatingApp.Api.Extensions;
 using DatingApp.DataModel.Entities;
 using DatingApp.ServiceModel.DTOs.Request;
 using DatingApp.ServiceModel.DTOs.Response;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
 
 namespace DatingApp.Api.Mapper
 {
@@ -22,7 +18,8 @@ namespace DatingApp.Api.Mapper
             CreateMap<User, RegisterDto>();
             CreateMap<User, LoginDto>();
             CreateMap<User, UserDetailsDto>();
-            CreateMap<User, UserUpdateDto>();
+            CreateMap<User, UserUpdateDto>().ReverseMap();
+           
 
 
         }
