@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DatingApp.Api.Helper;
 using DatingApp.Api.Mapper;
 using DatingApp.Api.Services;
 using DatingApp.Api.Services.Interfaces;
@@ -20,6 +21,7 @@ namespace DatingApp.Api.Extensions
     {
         public static void ConfigureDomainServices(this IServiceCollection services,IConfiguration configuration)
         {
+            services.Configure<CloudinarySettings>(configuration.GetSection("CloudinarySettings"));
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAccountRepository, AccountRepository>();

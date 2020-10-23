@@ -37,11 +37,13 @@ export class UserEditComponent implements OnInit {
     });
   }
   public editUser() {
-
+    this.memberService.updateUser(this.member).subscribe(() => {
       this.toastrService.success('your data has been successfully updated!!');
       this.editForm.reset(this.member);
 
-      console.log(this.member);
+    });
+
+    console.log(this.member);
 
   }
 }

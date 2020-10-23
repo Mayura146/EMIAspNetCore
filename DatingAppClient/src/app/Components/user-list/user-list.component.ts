@@ -8,19 +8,15 @@ import { MemberService } from '../../Services/member.service';
   styleUrls: ['./user-list.component.css'],
 })
 export class UserListComponent implements OnInit {
-  public members: IMember[];
- 
+  public members: Observable<IMember[]>;
+
   constructor(private memberService: MemberService) { }
 
   public ngOnInit(): void {
-   this.getMembers();
-    
+    this.members = this.memberService.getMembers();
+
   }
 
-  public getMembers() {
-  this.memberService.getMembers().subscribe((response) => {
 
-    this.members = response;
-   });
  }
-}
+
