@@ -31,15 +31,7 @@ namespace DatingApp.Api.Extensions
         }
 
 
-        //options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-        //{
-        //    Description = "JWT Authorization header using the Bearer scheme. Bearer {token}\"",
-        //    Name = "Authorization",
-        //    In = ParameterLocation.Header,
-        //    Type = SecuritySchemeType.ApiKey,
-        //    Scheme = "DatingAuth"
-        //});
-
+     
 
         public static IApplicationBuilder USeClientApi(this IApplicationBuilder app)
         {

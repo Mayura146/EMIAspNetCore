@@ -78,3 +78,9 @@ C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.dll
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.pdb
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.genruntimeconfig.cache
+C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\bin\Debug\netcoreapp3.1\CloudinaryDotNet.dll
+C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.csproj.CoreCompileInputs.cache
+C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp\obj\Debug\netcoreapp3.1\DatingApp.Api.MvcApplicationPartsAssemblyInfo.cache

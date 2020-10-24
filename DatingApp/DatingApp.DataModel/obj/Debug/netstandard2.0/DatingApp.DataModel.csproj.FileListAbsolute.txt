@@ -6,3 +6,4 @@ C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp.DataModel\obj\Debug\n
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp.DataModel\obj\Debug\netstandard2.0\DatingApp.DataModel.dll
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp.DataModel\obj\Debug\netstandard2.0\DatingApp.DataModel.pdb
 C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp.DataModel\obj\Debug\netstandard2.0\DatingApp.DataModel.csprojAssemblyReference.cache
+C:\EMIAspNetCoreTraining\EMIAspNetCore\DatingApp\DatingApp.DataModel\obj\Debug\netstandard2.0\DatingApp.DataModel.csproj.CoreCompileInputs.cache
