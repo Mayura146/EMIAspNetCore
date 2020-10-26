@@ -1,6 +1,6 @@
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -15,6 +15,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { ListComponent } from './Components/list/list.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
+import { PhotoEditorComponent } from './Components/photo-editor/photo-editor.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { UserCardComponent } from './Components/user-card/user-card.component';
 import { UserDetailsComponent } from './Components/user-details/user-details.component';
@@ -34,6 +35,7 @@ import { JwtInterceptor } from './Interceptor/jwt.interceptor';
     UserDetailsComponent,
     UserEditComponent,
     AddphotoComponent,
+    PhotoEditorComponent,
 
   ],
   imports: [
@@ -47,6 +49,7 @@ import { JwtInterceptor } from './Interceptor/jwt.interceptor';
     TabsModule.forRoot(),
     NgxGalleryModule,
     FileUploadModule,
+    ReactiveFormsModule,
 
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],

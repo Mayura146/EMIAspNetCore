@@ -21,13 +21,13 @@ export class AccountService {
       .pipe(map((response: IUser) => {
         const user = response;
         if (user) {
-        
+          localStorage.setItem('user', JSON.stringify(user));
           this.currentUserValue.next(user);
           }
         return user;
       }));
   }
-  // tslint:disable-next-line: typedef
+
   public logout() {
     localStorage.removeItem('user');
     this.currentUserValue.next(null);
@@ -43,8 +43,5 @@ export class AccountService {
       }
     }));
   }
-  public setCurrentUser(user: IUser) {
-    
-    this.currentUserValue.next(user);
-  }
+  
 }
