@@ -3,12 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FileUploadModule } from 'ng2-file-upload';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from 'ngx-gallery-9';
 import { ToastrModule } from 'ngx-toastr';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AddphotoComponent } from './Components/addphoto/addphoto.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ListComponent } from './Components/list/list.component';
 import { MessagesComponent } from './Components/messages/messages.component';
@@ -31,6 +33,7 @@ import { JwtInterceptor } from './Interceptor/jwt.interceptor';
     UserCardComponent,
     UserDetailsComponent,
     UserEditComponent,
+    AddphotoComponent,
 
   ],
   imports: [
@@ -43,6 +46,8 @@ import { JwtInterceptor } from './Interceptor/jwt.interceptor';
     ToastrModule.forRoot({ positionClass: 'toast-bottom-left' }),
     TabsModule.forRoot(),
     NgxGalleryModule,
+    FileUploadModule,
+
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent],

@@ -14,14 +14,14 @@ export class AccountService {
 
   constructor(private httpClient: HttpClient) { }
 
-  // tslint:disable-next-line: typedef
+ 
   public login(model: any) {
     const URL = this.baseUrl + 'account/login';
     return this.httpClient.post(URL, model)
       .pipe(map((response: IUser) => {
         const user = response;
         if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
+        
           this.currentUserValue.next(user);
           }
         return user;
@@ -44,6 +44,7 @@ export class AccountService {
     }));
   }
   public setCurrentUser(user: IUser) {
+    
     this.currentUserValue.next(user);
   }
 }

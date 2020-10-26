@@ -1,19 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
-using DatingApp.Api.Services;
 using DatingApp.Api.Services.Interfaces;
-using DatingApp.DataModel.Context;
-using DatingApp.DataModel.Entities;
 using DatingApp.ServiceModel.DTOs.Request;
 using DatingApp.ServiceModel.DTOs.Response;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.Api.Controllers
 {
@@ -45,7 +35,7 @@ namespace DatingApp.Api.Controllers
             var response = _mapper.Map<UserDetailsDto>(createUser);
             return Ok(response);
 
-                   }
+        }
         [HttpPost("login")]
         public async Task<ActionResult> Login(LoginRequestDto loginRequestDto)
        

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using DatingApp.Api.Extensions;
 using DatingApp.Api.Services.Interfaces;
-using DatingApp.DataModel.Entities;
-using DatingApp.ServiceModel.DTOs.Request;
 using DatingApp.ServiceModel.DTOs.Response;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DatingApp.Api.Controllers
@@ -21,11 +15,13 @@ namespace DatingApp.Api.Controllers
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
+        private readonly IPhotoService _photoService;
 
-        public UserController(IUserService userService,IMapper mapper)
+        public UserController(IUserService userService, IMapper mapper, IPhotoService photoService)
         {
             _userService = userService;
             _mapper = mapper;
+            _photoService = photoService;
         }
 
         [HttpGet]
@@ -39,18 +35,18 @@ namespace DatingApp.Api.Controllers
         }
 
 
-        [HttpGet("{Id}")]
+        [HttpGet("{id}", Name = "GetUser")]
         [Authorize]
         public async Task<ActionResult<UserDto>> GetUserByIdAsync(int Id)
         {
-            var user= await _userService.GetByIdAsync(Id);
+            var user = await _userService.GetByIdAsync(Id);
             var response = _mapper.Map<UserDto>(user);
 
             return response;
         }
 
         [HttpPut("edit")]
-        public async Task<ActionResult>UpdateUser(UserUpdateDto userUpdateDto)
+        public async Task<ActionResult> UpdateUser(UserUpdateDto userUpdateDto)
         {
             var userId = await _userService.GetByIdAsync(User.GetUserId());
             //var user = await _userService.GetByIdAsync(id);
@@ -62,5 +58,7 @@ namespace DatingApp.Api.Controllers
 
             return BadRequest("Updation Failed!!");
         }
+
+
     }
 }

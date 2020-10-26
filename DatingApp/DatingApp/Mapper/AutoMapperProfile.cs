@@ -16,7 +16,7 @@ namespace DatingApp.Api.Mapper
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateofBirth.Age()));
             CreateMap<Photo, PhotoDto>();
             CreateMap<User, RegisterDto>();
-            CreateMap<User, LoginDto>();
+            CreateMap<User, LoginDto>().ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url)); ;
             CreateMap<User, UserDetailsDto>();
             CreateMap<User, UserUpdateDto>().ReverseMap();
            

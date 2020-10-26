@@ -45,4 +45,5 @@ export class MemberService {
       this.members[index] = member;
     }));
   }
+
 }

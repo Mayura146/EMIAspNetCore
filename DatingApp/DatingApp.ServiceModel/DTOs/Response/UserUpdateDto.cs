@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DatingApp.ServiceModel.DTOs.Response
+﻿namespace DatingApp.ServiceModel.DTOs.Response
 {
-   public class UserUpdateDto
+    public class UserUpdateDto
     {
 
         public string Introduction { get; set; }

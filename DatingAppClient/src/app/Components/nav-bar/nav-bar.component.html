@@ -22,7 +22,8 @@
       </ul>
   
       <div class="dropdown" *ngIf="(accountService.currentUser |async) as user" >
-      <div class="container" style="color: white;">Welcome {{user.name | titlecase}} </div>
+        
+        <a class="text-light m1-2" style="color: white;">Welcome {{user.name | titlecase}}</a>
        </div>
    
       <form *ngIf="(accountService.currentUser |async)==null"  class="form-inline mt-2 mt-md-0" (ngSubmit)="login()">
