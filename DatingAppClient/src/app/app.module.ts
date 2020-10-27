@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FileUploadModule } from 'ng2-file-upload';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from 'ngx-gallery-9';
 import { ToastrModule } from 'ngx-toastr';
@@ -11,6 +12,7 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddphotoComponent } from './Components/addphoto/addphoto.component';
+import { DateInputComponent } from './Components/date-input/date-input.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ListComponent } from './Components/list/list.component';
 import { MessagesComponent } from './Components/messages/messages.component';
@@ -22,6 +24,7 @@ import { UserDetailsComponent } from './Components/user-details/user-details.com
 import { UserEditComponent } from './Components/user-edit/user-edit.component';
 import { UserListComponent } from './Components/user-list/user-list.component';
 import { JwtInterceptor } from './Interceptor/jwt.interceptor';
+import { TextInputComponent } from './Components/text-input/text-input.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,8 @@ import { JwtInterceptor } from './Interceptor/jwt.interceptor';
     UserEditComponent,
     AddphotoComponent,
     PhotoEditorComponent,
+    DateInputComponent,
+    TextInputComponent,
 
   ],
   imports: [
@@ -50,6 +55,7 @@ import { JwtInterceptor } from './Interceptor/jwt.interceptor';
     NgxGalleryModule,
     FileUploadModule,
     ReactiveFormsModule,
+    BsDatepickerModule.forRoot(),
 
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],

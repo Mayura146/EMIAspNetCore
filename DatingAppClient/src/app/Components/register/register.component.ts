@@ -15,36 +15,40 @@ export class RegisterComponent implements OnInit {
   @Output() public cancelRegister = new EventEmitter();
 public model: any = {};
   public registerForm: FormGroup;
-  constructor(private accountService: AccountService, private toastrService: ToastrService,
-              private fb: FormBuilder, private router: Router,
-  ) { }
+  public maxDate: Date;
+  public validationErrors: string[] = [];
+
+  constructor(private accountService: AccountService, private toastr: ToastrService,
+              private fb: FormBuilder, private router: Router) { }
 
   public ngOnInit(): void {
+    this.intitializeForm();
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
+  }
+
+  public intitializeForm() {
     this.registerForm = this.fb.group({
-
-      userName: ['', Validators.required],
+      gender: ['male'],
+      username: ['', Validators.required],
       knownAs: ['', Validators.required],
-      dateBirth: ['', Validators.required],
+      dateOfBirth: ['', Validators.required],
       country: ['', Validators.required],
-      password: ['', [Validators.required], Validators.min(4), Validators.maxLength(8)],
-    });
+      password: ['', [Validators.required,
+      Validators.minLength(4), Validators.maxLength(8)]],
 
+    });
   }
 
   public register() {
-    console.log(this.model);
-    this.accountService.register(this.model).subscribe((response) => {
+    this.accountService.register(this.registerForm.value).subscribe((response) => {
       this.router.navigateByUrl('/user');
-      this.cancel();
     }, (error) => {
-        console.log(error);
-        this.toastrService.error(error.error);
+      this.validationErrors = error;
     });
-
   }
+
   public cancel() {
     this.cancelRegister.emit(false);
-    console.log('cancelled');
-
   }
 }
