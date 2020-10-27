@@ -1761,6 +1761,21 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "DatingApp.ServiceModel/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "3.1.9",
+          "Microsoft.EntityFrameworkCore": "3.1.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8"
+        },
+        "compile": {
+          "bin/placeholder/DatingApp.ServiceModel.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DatingApp.ServiceModel.dll": {}
+        }
       }
     }
   },
@@ -6325,11 +6340,17 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "DatingApp.ServiceModel/1.0.0": {
+      "type": "project",
+      "path": "../DatingApp.ServiceModel/DatingApp.ServiceModel.csproj",
+      "msbuildProject": "../DatingApp.ServiceModel/DatingApp.ServiceModel.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "CloudinaryDotNet >= 1.13.1",
+      "DatingApp.ServiceModel >= 1.0.0",
       "Microsoft.AspNetCore.Http.Features >= 3.1.9",
       "Microsoft.EntityFrameworkCore >= 3.1.8",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.8",
@@ -6369,7 +6390,11 @@
       },
       "frameworks": {
         "netstandard2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\DatingApp\\DatingApp.ServiceModel\\DatingApp.ServiceModel.csproj": {
+              "projectPath": "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\DatingApp\\DatingApp.ServiceModel\\DatingApp.ServiceModel.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

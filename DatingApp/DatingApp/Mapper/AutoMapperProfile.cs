@@ -19,7 +19,7 @@ namespace DatingApp.Api.Mapper
             CreateMap<User, LoginDto>().ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url)); 
             CreateMap<User, UserDetailsDto>();
             CreateMap<User, UserUpdateDto>().ReverseMap();
-           
+            CreateMap<User, LikeDto>().ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url)); ;
 
 
         }

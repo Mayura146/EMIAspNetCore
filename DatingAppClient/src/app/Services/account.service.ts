@@ -14,7 +14,7 @@ export class AccountService {
 
   constructor(private httpClient: HttpClient) { }
 
- 
+
   public login(model: any) {
     const URL = this.baseUrl + 'account/login';
     return this.httpClient.post(URL, model)
@@ -43,5 +43,5 @@ export class AccountService {
       }
     }));
   }
-  
+
 }

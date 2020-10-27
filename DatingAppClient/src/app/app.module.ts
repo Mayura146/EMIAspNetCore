@@ -12,7 +12,6 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddphotoComponent } from './Components/addphoto/addphoto.component';
-import { DateInputComponent } from './Components/date-input/date-input.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ListComponent } from './Components/list/list.component';
 import { MessagesComponent } from './Components/messages/messages.component';
@@ -24,7 +23,9 @@ import { UserDetailsComponent } from './Components/user-details/user-details.com
 import { UserEditComponent } from './Components/user-edit/user-edit.component';
 import { UserListComponent } from './Components/user-list/user-list.component';
 import { JwtInterceptor } from './Interceptor/jwt.interceptor';
+import { DateInputComponent } from './Components/date-input/date-input.component';
 import { TextInputComponent } from './Components/text-input/text-input.component';
+
 @NgModule({
   declarations: [
     AppComponent,

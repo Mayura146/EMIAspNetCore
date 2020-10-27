@@ -24,6 +24,8 @@ namespace DatingApp.Api.Extensions
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IPhotoRepository, PhotoResposiotry>();
             services.AddScoped<IPhotoService, PhotoService>();
+            services.AddScoped<ILikeRepository, LikeRepository>();
+            services.AddScoped<ILikeService, LikeService>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

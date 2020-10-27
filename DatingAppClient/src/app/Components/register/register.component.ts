@@ -30,7 +30,7 @@ public model: any = {};
   public intitializeForm() {
     this.registerForm = this.fb.group({
       gender: ['male'],
-      username: ['', Validators.required],
+      name: ['', Validators.required],
       knownAs: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
       country: ['', Validators.required],
@@ -41,6 +41,7 @@ public model: any = {};
   }
 
   public register() {
+    console.log(this.registerForm.value);
     this.accountService.register(this.registerForm.value).subscribe((response) => {
       this.router.navigateByUrl('/user');
     }, (error) => {

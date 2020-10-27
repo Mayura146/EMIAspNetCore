@@ -22,7 +22,7 @@
       </ul>
   
       <div class="dropdown" *ngIf="(accountService.currentUser |async) as user" >
-        
+        <img src="{{user.photoUrl || './assets/user.png'}}">
         <a class="text-light m1-2" style="color: white;">Welcome {{user.name | titlecase}}</a>
        </div>
    

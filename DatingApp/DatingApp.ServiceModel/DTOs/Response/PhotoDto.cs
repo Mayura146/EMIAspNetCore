@@ -8,5 +8,7 @@ namespace DatingApp.ServiceModel.DTOs.Response
 
         public string Url { get; set; }
         public bool IsMain { get; set; }
+
+        public IFormFile formFile { get; set; }
     }
 }
