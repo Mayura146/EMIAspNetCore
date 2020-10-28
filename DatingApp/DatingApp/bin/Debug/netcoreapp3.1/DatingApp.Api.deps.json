@@ -306,7 +306,7 @@
           "DatingApp.Api.dll": {}
         }
       },
-      "AutoMapper/10.1.0": {
+      "AutoMapper/10.1.1": {
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
           "System.Reflection.Emit": "4.7.0"
@@ -314,7 +314,7 @@
         "runtime": {
           "lib/netstandard2.0/AutoMapper.dll": {
             "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.1.0.0"
+            "fileVersion": "10.1.1.0"
           }
         },
         "compile": {
@@ -323,7 +323,7 @@
       },
       "AutoMapper.Extensions.Microsoft.DependencyInjection/8.1.0": {
         "dependencies": {
-          "AutoMapper": "10.1.0",
+          "AutoMapper": "10.1.1",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.8",
           "Microsoft.Extensions.Options": "3.1.8"
         },
@@ -1808,7 +1808,9 @@
       },
       "DatingApp.DataModel/1.0.0": {
         "dependencies": {
+          "AutoMapper": "10.1.1",
           "CloudinaryDotNet": "1.13.1",
+          "DatingApp.ServiceModel": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "3.1.9",
           "Microsoft.EntityFrameworkCore": "3.1.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8",
@@ -1825,7 +1827,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Http.Features": "3.1.9",
           "Microsoft.EntityFrameworkCore": "3.1.8",
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8"
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.8",
+          "Newtonsoft.Json": "12.0.3"
         },
         "runtime": {
           "DatingApp.ServiceModel.dll": {}
@@ -3420,12 +3423,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "AutoMapper/10.1.0": {
+    "AutoMapper/10.1.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qxn9+PpQJD53PAUHGXW3HTcq6Rxbv3Pyq/jTcc60ZYwOygyqUfHIY3HBChKbDwtTHdlwlQqJeJ1ckVcaoytxxw==",
-      "path": "automapper/10.1.0",
-      "hashPath": "automapper.10.1.0.nupkg.sha512"
+      "sha512": "sha512-uMgbqOdu9ZG5cIOty0C85hzzayBH2i9BthnS5FlMqKtMSHDv4ts81a2jS1VFaDBVhlBeIqJ/kQKjQY95BZde9w==",
+      "path": "automapper/10.1.1",
+      "hashPath": "automapper.10.1.1.nupkg.sha512"
     },
     "AutoMapper.Extensions.Microsoft.DependencyInjection/8.1.0": {
       "type": "package",

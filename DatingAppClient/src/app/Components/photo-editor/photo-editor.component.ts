@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IMember } from 'src/app/Models/IMember';
-import { IPhoto } from 'src/app/Models/IPhoto';
+import { FileUploader } from 'ng2-file-upload';
 import { IUser } from 'src/app/Models/IUser';
 import { AccountService } from 'src/app/Services/account.service';
 import { MemberService } from 'src/app/Services/member.service';
+import { environment } from 'src/environments/environment';
+import { IMember } from '../../Models/IMember';
+import { IPhoto } from '../../Models/IPhoto';
 
 @Component({
   selector: 'app-photo-editor',
@@ -14,11 +16,49 @@ export class PhotoEditorComponent implements OnInit {
 
   @Input() public member: IMember;
   public user: IUser;
+  public uploader: FileUploader;
+  public hasBaseDropzoneOver = false;
+  public baseUrl = environment.apiUrl;
+
+
   constructor(private accountService: AccountService, private memberService: MemberService) {
     this.accountService.currentUser.subscribe((user) => this.user = user);
    }
 
   public ngOnInit(): void {
+    this.initializeUploader();
+  }
+
+  public fileOverBase(e: any) {
+    this.hasBaseDropzoneOver = e;
+  }
+
+  public initializeUploader() {
+    this.uploader = new FileUploader({
+      url: this.baseUrl + 'user/add-photos',
+      authToken: 'Bearer ' + this.user.token,
+      isHTML5: true,
+      allowedFileType: ['image'],
+      removeAfterUpload: true,
+      autoUpload: false,
+      maxFileSize: 10 * 1024 * 1024,
+    });
+
+    this.uploader.onAfterAddingFile = (file) => {
+      file.withCredentials = false;
+    };
+
+    this.uploader.onSuccessItem = (item, response, status, headers) => {
+      if (response) {
+        const photo: IPhoto = JSON.parse(response);
+        this.member.photos.push(photo);
+        if (photo.isMain) {
+           this.user.photoUrl = photo.url;
+           this.member.photoUrl = photo.url;
+           this.accountService.setCurrentUser(this.user);
+         }
+      }
+    };
   }
 
   public setMainPhoto(photo: IPhoto) {

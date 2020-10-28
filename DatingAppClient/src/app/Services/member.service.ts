@@ -52,4 +52,11 @@ export class MemberService {
   public deletePhoto(photoId: number) {
     return this.httpClient.delete(this.baseUrl + 'user/delete-photos/' + photoId);
   }
+  public addLike(userId: number) {
+    return this.httpClient.post(this.baseUrl + 'like/?id=' + userId, {});
+  }
+
+  public getLikes(predicate: string) {
+    return this.httpClient.get<Partial<IMember[]>>(this.baseUrl + 'like?=' + predicate);
+  }
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { IUser } from './Models/IUser';
 import { AccountService } from './Services/account.service';
@@ -10,18 +10,17 @@ import { AccountService } from './Services/account.service';
 })
 export class AppComponent implements OnInit {
   public title = 'DatingAppClient';
-  public displayedColumns: string[] = ['id', 'userName'];  public users: any;
+  public displayedColumns: string[] = ['id', 'userName']; public users: any;
   constructor(private accountService: AccountService) {
 
   }
   public ngOnInit() {
-   // this.setCurrentUser();
+    this.setCurrentUser();
   }
 
-  // public setCurrentUser() {
-  //   const user: IUser = JSON.parse(localStorage.getItem('user'));
-  //   this.accountService.setCurrentUser(user);
+  public setCurrentUser() {
+    const user: IUser = JSON.parse(localStorage.getItem('user'));
+    this.accountService.setCurrentUser(user);
   }
 
-
-
+}

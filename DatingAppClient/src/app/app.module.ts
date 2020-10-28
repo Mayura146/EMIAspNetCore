@@ -11,20 +11,19 @@ import { ToastrModule } from 'ngx-toastr';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddphotoComponent } from './Components/addphoto/addphoto.component';
+import { DateInputComponent } from './Components/date-input/date-input.component';
 import { HomeComponent } from './Components/home/home.component';
 import { ListComponent } from './Components/list/list.component';
 import { MessagesComponent } from './Components/messages/messages.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { PhotoEditorComponent } from './Components/photo-editor/photo-editor.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { TextInputComponent } from './Components/text-input/text-input.component';
 import { UserCardComponent } from './Components/user-card/user-card.component';
 import { UserDetailsComponent } from './Components/user-details/user-details.component';
 import { UserEditComponent } from './Components/user-edit/user-edit.component';
 import { UserListComponent } from './Components/user-list/user-list.component';
 import { JwtInterceptor } from './Interceptor/jwt.interceptor';
-import { DateInputComponent } from './Components/date-input/date-input.component';
-import { TextInputComponent } from './Components/text-input/text-input.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import { TextInputComponent } from './Components/text-input/text-input.component
     UserCardComponent,
     UserDetailsComponent,
     UserEditComponent,
-    AddphotoComponent,
     PhotoEditorComponent,
     DateInputComponent,
     TextInputComponent,

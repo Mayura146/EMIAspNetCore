@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/+XYBvLm3O/o+Y9UpVfA4jJVcC5CiVZsJU/6upz0DXsfHg5YWDkMvOiZOlGvOa/FEju1PNowQkwZL6kauW/xMw==",
+  "dgSpecHash": "tSBfMZJ8QV5Pe2nsF7HhjSakULW7Po3JH1yV+YuOAniWN3VDC5YAqs+OAxwqmRCVKkxnEdKIcZdhOe4jhDbJNw==",
   "success": true,
   "projectFilePath": "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\DatingApp\\DatingApp\\DatingApp.Api.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\mayura.sonar\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
+    "C:\\Users\\mayura.sonar\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\cloudinarydotnet\\1.13.1\\cloudinarydotnet.1.13.1.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.0.0\\microsoft.aspnetcore.authentication.abstractions.2.0.0.nupkg.sha512",

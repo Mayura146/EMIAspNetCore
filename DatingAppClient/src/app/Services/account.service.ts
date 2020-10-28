@@ -14,14 +14,13 @@ export class AccountService {
 
   constructor(private httpClient: HttpClient) { }
 
-
   public login(model: any) {
     const URL = this.baseUrl + 'account/login';
     return this.httpClient.post(URL, model)
       .pipe(map((response: IUser) => {
         const user = response;
         if (user) {
-          localStorage.setItem('user', JSON.stringify(user));
+          this.setCurrentUser(user);
           this.currentUserValue.next(user);
           }
         return user;
@@ -38,10 +37,13 @@ export class AccountService {
     const URL = this.baseUrl + 'account/register';
     return this.httpClient.post(URL, model).pipe(map((user: IUser) => {
       if (user) {
-        localStorage.setItem('user', JSON.stringify(user));
+        this.setCurrentUser(user);
         this.currentUserValue.next(user);
       }
     }));
   }
-
+  public setCurrentUser(user: IUser) {
+    localStorage.setItem('user', JSON.stringify(user));
+    this.currentUserValue.next(user);
+  }
 }

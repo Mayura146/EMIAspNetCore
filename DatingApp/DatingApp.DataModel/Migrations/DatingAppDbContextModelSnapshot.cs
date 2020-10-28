@@ -19,6 +19,52 @@ namespace DatingApp.DataModel.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("DatingApp.DataModel.Entities.Messages", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateRead")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("MessageSent")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("ReceipentDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("ReceipentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ReceipentUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RecipentId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SendUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("SenderDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ReceipentId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Message");
+                });
+
             modelBuilder.Entity("DatingApp.DataModel.Entities.Photo", b =>
                 {
                     b.Property<int>("Id")
@@ -106,6 +152,20 @@ namespace DatingApp.DataModel.Migrations
                     b.HasIndex("LikedUserId");
 
                     b.ToTable("Like");
+                });
+
+            modelBuilder.Entity("DatingApp.DataModel.Entities.Messages", b =>
+                {
+                    b.HasOne("DatingApp.DataModel.Entities.User", "Receipent")
+                        .WithMany("MessageReceived")
+                        .HasForeignKey("ReceipentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("DatingApp.DataModel.Entities.User", "Sender")
+                        .WithMany("MessagesSent")
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DatingApp.DataModel.Entities.Photo", b =>

@@ -20,8 +20,13 @@ namespace DatingApp.Api.Mapper
             CreateMap<User, UserDetailsDto>();
             CreateMap<User, UserUpdateDto>().ReverseMap();
             CreateMap<User, LikeDto>().ForMember(dest => dest.PhotoUrl, opt => opt.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url)); ;
-
-
+            CreateMap<Messages, MessageDto>()
+               .ForMember(dest => dest.SenderPhotoUrl, opt => opt.MapFrom(src =>
+                   src.Sender.Photos.FirstOrDefault(x => x.IsMain).Url))
+               .ForMember(dest => dest.RecipientPhotoUrl, opt => opt.MapFrom(src =>
+                   src.Receipent.Photos.FirstOrDefault(x => x.IsMain).Url));
+           
+           
         }
     }
 }

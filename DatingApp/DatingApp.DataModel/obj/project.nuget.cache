@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "RRVO2ODfef72Nlr+JTay8x0TOn9BGnOrVlvJmhGEXzBHlCst2NQKVsAnf0V5TvQHt2AF8bFMizS05FQ6lWzg6w==",
+  "dgSpecHash": "Ye+Xo/yYN7kQcAR8TokBfASIcNBW0vfdCT7rsxgo60ODW5oT1ZUjguNF6eAVsUfEz90drG7IUH228cGrbBqJ+A==",
   "success": true,
   "projectFilePath": "C:\\EMIAspNetCoreTraining\\EMIAspNetCore\\DatingApp\\DatingApp.DataModel\\DatingApp.DataModel.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mayura.sonar\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\cloudinarydotnet\\1.13.1\\cloudinarydotnet.1.13.1.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.9\\microsoft.aspnetcore.http.features.3.1.9.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
@@ -83,8 +84,8 @@
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.private.datacontractserialization\\4.3.0\\system.private.datacontractserialization.4.3.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.reflection\\4.3.0\\system.reflection.4.3.0.nupkg.sha512",
-    "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.reflection.emit\\4.3.0\\system.reflection.emit.4.3.0.nupkg.sha512",
-    "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
+    "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.7.0\\system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\mayura.sonar\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
